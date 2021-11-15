@@ -6,6 +6,8 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: timarenz/vulnerable-container
+  LW_ACCOUNT_NAME: ${{ secrets.LW_ACCOUNT_NAME }}
+  LW_ACCESS_TOKEN: ${{ secrets.LW_ACCESS_TOKEN }}
 
 jobs:
   scan:
