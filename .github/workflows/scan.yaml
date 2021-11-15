@@ -1,7 +1,14 @@
+name: scan
+
 on:
-  - push
-  - workflow_call
-  - workflow_dispatch
+  push:
+  workflow_call:
+    secrets:
+      LW_ACCOUNT_NAME:
+        required: true
+      LW_ACCESS_TOKEN:
+        required: true
+  workflow_dispatch:
 
 jobs:
   scan:
