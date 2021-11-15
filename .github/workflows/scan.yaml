@@ -1,10 +1,10 @@
-name: vulnerability-scan
 on:
   - push
+  - workflow_call
   - workflow_dispatch
 
 jobs:
-  vulnerability-scan:
+  scan:
     runs-on: ubuntu-latest
     env:
       LW_ACCOUNT_NAME: ${{ secrets.LW_ACCOUNT_NAME }}
