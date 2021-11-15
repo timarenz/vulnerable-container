@@ -8,11 +8,11 @@ env:
   IMAGE_NAME: timarenz/vulnerable-container
 
 jobs:
-  test:
+  scan:
     uses: timarenz/vulnerable-container/.github/workflows/scan.yaml@main
 
   release:
-    needs: test
+    needs: scan
     runs-on: ubuntu-latest
     permissions:
       contents: read
