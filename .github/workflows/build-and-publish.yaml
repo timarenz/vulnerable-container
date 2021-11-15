@@ -3,12 +3,6 @@ on:
     tags:
       - "*"
 
-env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: timarenz/vulnerable-container
-  LW_ACCOUNT_NAME: ${{ secrets.LW_ACCOUNT_NAME }}
-  LW_ACCESS_TOKEN: ${{ secrets.LW_ACCESS_TOKEN }}
-
 jobs:
   scan:
     uses: timarenz/vulnerable-container/.github/workflows/scan.yaml@main
@@ -16,6 +10,11 @@ jobs:
   release:
     needs: scan
     runs-on: ubuntu-latest
+    env:
+      REGISTRY: ghcr.io
+      IMAGE_NAME: timarenz/vulnerable-container
+      LW_ACCOUNT_NAME: ${{ secrets.LW_ACCOUNT_NAME }}
+      LW_ACCESS_TOKEN: ${{ secrets.LW_ACCESS_TOKEN }}
     permissions:
       contents: read
       packages: write
