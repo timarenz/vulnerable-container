@@ -15,7 +15,7 @@ jobs:
       LW_ACCOUNT_NAME: ${{ secrets.LW_ACCOUNT_NAME }}
       LW_ACCESS_TOKEN: ${{ secrets.LW_ACCESS_TOKEN }}
 
-  release:
+  build-and-publish:
     needs: scan
     runs-on: ubuntu-latest
     permissions:
